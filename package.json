@@ -1,0 +1,17 @@
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "description": "This is just for learning",
+  "main": "ExternalModule.js",
+  "scripts": {
+    "start": "nodemon ./Node_Tutorial/app.js"
+  },
+  "author": "Cabe",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,2 @@
+The content of text.txt file is : This is just a txt file
+More info is here

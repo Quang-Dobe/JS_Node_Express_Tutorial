@@ -8,11 +8,11 @@ const sever = http.createServer((req, res) => {
     }
     if (req.url === '/about') {
         // Blocking code
-        for (let i=0; i<1000; i++) {
-            for (let j=0; j<1000; j++){
-                console.log(`${i} and ${j}`)
-            }
-        }
+        // for (let i=0; i<1000; i++) {
+        //     for (let j=0; j<1000; j++){
+        //         console.log(`${i} and ${j}`)
+        //     }
+        // }
         res.write("Thank you for visiting!")
         return;
     }

@@ -256,13 +256,13 @@ var myData = [
         "Name": "Quang",
         "Age": 21,
         "Hobby": ["ML", "LPhuong :D"],
-        "Marital status": "FA :)))"
+        "Marriage status": "FA :)))"
     },
     {
         "Name": "LPhuong",
         "Age": 21,
         "Hobby": ["Unknown", "Unknown"],
-        "Marital status": "Already have boy friend :D"
+        "Marriage status": "Already have boy friend :D"
     }
 ]
 var otherData = {

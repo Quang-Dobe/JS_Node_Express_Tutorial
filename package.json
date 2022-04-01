@@ -4,7 +4,7 @@
   "description": "This is just for learning",
   "main": "ExternalModule.js",
   "scripts": {
-    "start": "nodemon ./Node_Tutorial/app.js"
+    "start": "nodemon ./Express_Tutorial/app.js"
   },
   "author": "Cabe",
   "license": "ISC",

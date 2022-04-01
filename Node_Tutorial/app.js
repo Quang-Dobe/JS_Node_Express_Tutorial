@@ -2,9 +2,17 @@ const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
+// This line for reading .html file
+// But get attention: if req.url==='/', if we have more file (like css, pvg, js,...)
+// We must create more req.url like:
+// if (req.url==='/file.css') => read file css
+// ....
+const homePage = fs.readFileSync(path.join(__dirname, 'view', 'view.html'))
+
 const sever = http.createServer((req, res) => {
     if (req.url === '/') {
-        res.write("Welcome to my website!")
+        res.writeHead(200, { "content-type": "text/html" })
+        res.write(`${homePage}`)
         res.end()
         return;
     }
@@ -15,7 +23,9 @@ const sever = http.createServer((req, res) => {
         //         console.log(`${i} and ${j}`)
         //     }
         // }
-        res.write("Thank you for visiting!")
+        res.writeHead(200, { "content-type": "text/html" })
+        res.write("<h1>About this website</h1>")
+        res.write("<p>Author: Cabe</p>")
         res.end()
         return;
     }
@@ -36,18 +46,20 @@ const sever = http.createServer((req, res) => {
         
         // So to solve this problem, we will use blocking code (using readFileSync()-function)
         // But if using this way, we can't not control the size of information we want to response
+        res.writeHead(200, { "content-type": "text/html" })
         var data = fs.readFileSync(path.join(__dirname, 'content', 'temp.txt'), 'utf-8')
         res.write(`The information of that file is:\n${data}`)
         res.end()
         return;
         // So, to solve this problem, I think we can use some trick that don't use return-line and allow the program executed to the end of this callback function
     }
-    
-    res.end(`
-    <h1>Not found</h1>
-    <p>Sorry we can't find this page</p>
-    <a href='/'>Back home!</a>
-    `)
+    else {
+        res.writeHead(404, { "content-type": "text/html" })
+        res.end(`<h1>Not found</h1>
+        <br>
+        <p>Sorry we can't find this page</p>
+        <a href='/'>Back home!</a>`)
+    }
 })
 sever.listen(3000, () => {
     console.log("Running at port 3000...")

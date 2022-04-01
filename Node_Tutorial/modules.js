@@ -18,7 +18,7 @@ setInterval(() => {
 
 // External modules
 /*
-// We can use something like this
+// We can use something like this (If we want to use this, in package.json file, we must add "type": "module")
 // import { myName, myFunc } from "./ExternalModule.js";
 // myFunc(myName)
 // console.log(myFunc)
